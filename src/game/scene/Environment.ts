@@ -51,8 +51,7 @@ export class Environment {
         // Keep center playing pit area smooth, add gentle undulations further out
         if (distFromCenter > 0.6) {
           const wave =
-            Math.sin(x * 0.4) * Math.cos(z * 0.4) * 0.04 +
-            Math.sin(x * 1.5 + z * 1.2) * 0.015;
+            Math.sin(x * 0.4) * Math.cos(z * 0.4) * 0.04 + Math.sin(x * 1.5 + z * 1.2) * 0.015;
           pos.setY(i, wave);
         }
       }
@@ -80,12 +79,7 @@ export class Environment {
     const { pit } = GAME_CONFIG.dimensions;
 
     // A shallow oval depression carved into the earth
-    const pitGeo = new THREE.CylinderGeometry(
-      pit.width * 0.8,
-      pit.width * 0.5,
-      pit.depth,
-      24
-    );
+    const pitGeo = new THREE.CylinderGeometry(pit.width * 0.8, pit.width * 0.5, pit.depth, 24);
     pitGeo.scale(pit.length / pit.width, 1, 1);
 
     const pitMat = new THREE.MeshStandardMaterial({

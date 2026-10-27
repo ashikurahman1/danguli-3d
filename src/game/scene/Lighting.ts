@@ -29,10 +29,7 @@ export class LightingManager {
     scene.add(this.ambientLight);
 
     // Directional sunlight casting crisp but soft contact shadows
-    this.sunLight = new THREE.DirectionalLight(
-      graphics.sunLightColor,
-      graphics.sunLightIntensity
-    );
+    this.sunLight = new THREE.DirectionalLight(graphics.sunLightColor, graphics.sunLightIntensity);
     this.sunLight.position.set(
       graphics.sunPosition[0],
       graphics.sunPosition[1],
