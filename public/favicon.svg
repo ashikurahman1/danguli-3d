@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="stickGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4a373"/>
+      <stop offset="50%" stop-color="#b07d4b"/>
+      <stop offset="100%" stop-color="#8b5e34"/>
+    </linearGradient>
+    <linearGradient id="guliGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c99765"/>
+      <stop offset="50%" stop-color="#e6be8a"/>
+      <stop offset="100%" stop-color="#a4713e"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#2b2118" stroke="#d4a373" stroke-width="2"/>
+  
+  <!-- Danda (Stick) angled -->
+  <rect x="29" y="8" width="6" height="48" rx="3" transform="rotate(35 32 32)" fill="url(#stickGrad)"/>
+  
+  <!-- Guli (Biconical piece) angled crosswise -->
+  <polygon points="18,36 28,30 46,30 56,36 46,42 28,42" fill="url(#guliGrad)" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.5))"/>
+</svg>

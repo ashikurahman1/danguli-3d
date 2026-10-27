@@ -1,0 +1,309 @@
+/* Modern CSS Reset & Design Tokens for Danguli 3D */
+:root {
+  --color-earth-deep: #16120e;
+  --color-earth-dark: #221c16;
+  --color-earth-surface: rgba(34, 28, 22, 0.75);
+  --color-earth-border: rgba(212, 163, 115, 0.25);
+  --color-sand: #d4a373;
+  --color-sand-light: #faedcd;
+  --color-wood: #a4713e;
+  --color-clay: #bc6c25;
+  --color-terracotta: #dda15e;
+  --color-accent-amber: #f4a261;
+  --color-accent-emerald: #588157;
+  --color-text-primary: #f8f6f0;
+  --color-text-muted: #c4b9ac;
+  --color-text-dim: #8c8276;
+
+  --font-primary: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --shadow-hud: 0 16px 32px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.1);
+  --backdrop-blur: blur(12px);
+  --border-radius-sm: 6px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-earth-deep);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Canvas viewport container */
+.game-viewport {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: none;
+  overflow: hidden;
+}
+
+.game-viewport canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  outline: none;
+}
+
+/* UI Overlay Layer */
+.ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  z-index: 10;
+}
+
+/* Header Info */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
+.title-container {
+  background: var(--color-earth-surface);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-earth-border);
+  box-shadow: var(--shadow-hud);
+}
+
+.title-container h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-sand-light);
+}
+
+.title-container .subtitle {
+  font-size: 0.8rem;
+  color: var(--color-sand);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.15rem;
+}
+
+.badge-pill {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  background: rgba(221, 161, 94, 0.2);
+  color: var(--color-accent-amber);
+  border: 1px solid rgba(221, 161, 94, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+/* Status Panel */
+.stats-card {
+  background: var(--color-earth-surface);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-earth-border);
+  box-shadow: var(--shadow-hud);
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: var(--color-sand-light);
+  font-size: 1.1rem;
+}
+
+/* Instructions card at bottom */
+.footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: auto;
+}
+
+.guide-card {
+  background: var(--color-earth-surface);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-earth-border);
+  box-shadow: var(--shadow-hud);
+  max-width: 440px;
+}
+
+.guide-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent-amber);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.guide-text {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.key-hint {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-sand-light);
+  margin: 0 0.2rem;
+}
+
+/* Controls list */
+.control-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.hud-button {
+  background: var(--color-earth-surface);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--color-earth-border);
+  color: var(--color-text-primary);
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-hud);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hud-button:hover {
+  background: rgba(60, 50, 40, 0.85);
+  border-color: var(--color-sand);
+  transform: translateY(-2px);
+  color: var(--color-sand-light);
+}
+
+.hud-button:active {
+  transform: translateY(0);
+}
+
+/* Camera orbit hint badge */
+.center-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(22, 18, 14, 0.65);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--color-earth-border);
+  color: var(--color-sand-light);
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  animation: fadeInOut 4s infinite alternate ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0.85;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .ui-overlay {
+    padding: 0.75rem;
+  }
+  .header-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .title-container h1 {
+    font-size: 1.15rem;
+  }
+  .footer-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  .guide-card {
+    max-width: 100%;
+  }
+  .stats-card {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
