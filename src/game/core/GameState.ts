@@ -40,7 +40,7 @@ export interface GameStatusSnapshot {
  */
 export const VALID_TRANSITIONS: Record<GamePhase, readonly GamePhase[]> = {
   loading: ['ready', 'error'],
-  ready: ['aiming', 'paused', 'error'],
+  ready: ['aiming', 'paused', 'gameOver', 'error'],
   aiming: ['charging', 'ready', 'paused', 'error'],
   charging: ['striking', 'aiming', 'paused', 'error'],
   striking: ['inFlight', 'resolving', 'error'],
@@ -83,11 +83,16 @@ export class GameStateManager {
   }
 
   public canTransitionTo(nextPhase: GamePhase): boolean {
+    if (this.phase === nextPhase) return true;
     const allowed = VALID_TRANSITIONS[this.phase];
     return allowed.includes(nextPhase);
   }
 
   public transitionTo(nextPhase: GamePhase, errorMessage?: string): boolean {
+    if (this.phase === nextPhase) {
+      return true;
+    }
+
     if (!this.canTransitionTo(nextPhase)) {
       console.warn(`[GameState] Invalid state transition: ${this.phase} -> ${nextPhase}`);
       return false;
